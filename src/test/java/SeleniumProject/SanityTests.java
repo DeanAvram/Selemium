@@ -53,44 +53,37 @@ public class SanityTests {
 
 	@After
 	public void tearDown() {
-		//driver.quit();
+		// driver.quit();
 	}
 
 	@Test
-	public void SuccessfulPurchaseOperation() {
-		driver.get("https://atid.store/product/anchor-bracelet/");
+	public void SuccessfulPurchaseOperation() throws InterruptedException {
+		driver.get("https://atid.store/");
 		driver.manage().window().setSize(new Dimension(1052, 666));
+		driver.findElement(By.id("menu-item-45")).click();
+		driver.findElement(By.xpath("//*[@id=\"main\"]/div/ul/li[1]/div[1]/a/img")).click();
 		driver.findElement(By.name("add-to-cart")).click();
 		driver.findElement(By.className("ast-site-header-cart")).click();
 		driver.findElement(By.className("wc-proceed-to-checkout")).click();
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Thread.sleep(1000);
 		driver.findElement(By.id("place_order")).click();
-		
-		
-		//check if the price changed
-		
+		Thread.sleep(3000);
+		//List<WebElement> l =  driver.findElements(By.className("woocommerce-error"));
+		if (!driver.findElements(By.className("woocommerce-error")).isEmpty()) {
+			// found at least one error
+		}
+
 	}
 	/*
-	@Test
-	public void UnsuccessfulPurchaseOperation() {
-		// Test name: t1
-		// Step # | name | target | value
-		// 1 | open | / |
-		driver.get("https://www.google.com/");
-		// 2 | setWindowSize | 1052x666 |
-		driver.manage().window().setSize(new Dimension(1052, 666));
-		// 3 | type | name=q | hello
-		driver.findElement(By.name("q")).sendKeys("hello");
-		// 4 | sendKeys | name=q | ${KEY_ENTER}
-		driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
-		// 5 | runScript | window.scrollTo(0,1500) |
-		js.executeScript("window.scrollTo(0,1500)");
-	}*/
+	 * @Test public void UnsuccessfulPurchaseOperation() { // Test name: t1 // Step
+	 * # | name | target | value // 1 | open | / |
+	 * driver.get("https://www.google.com/"); // 2 | setWindowSize | 1052x666 |
+	 * driver.manage().window().setSize(new Dimension(1052, 666)); // 3 | type |
+	 * name=q | hello driver.findElement(By.name("q")).sendKeys("hello"); // 4 |
+	 * sendKeys | name=q | ${KEY_ENTER}
+	 * driver.findElement(By.name("q")).sendKeys(Keys.ENTER); // 5 | runScript |
+	 * window.scrollTo(0,1500) | js.executeScript("window.scrollTo(0,1500)"); }
+	 */
 
 	public static void main(String args[]) {
 		JUnitCore junit = new JUnitCore();
