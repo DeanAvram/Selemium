@@ -1,0 +1,11 @@
+[
+	{
+		"firstName": "Israel",
+		"lastName": "Israeli",
+		"address": "Rabin 10",
+		"postcode": "12345",
+		"city": "Tel Aviv",
+		"phone": "0525775737",
+		"email": "mail@gmail.com"
+	}
+]
