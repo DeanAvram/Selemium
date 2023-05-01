@@ -15,7 +15,7 @@ private WebDriver driver;
 	By buttonByXpath = By.xpath("//*[@id=\"menu-item-829\"]/a");
 	
 	public void ClickContactUs() {
-		driver.findElement(buttonByXpath).click();;
+		driver.findElement(buttonByXpath).click();
 	}
 
 }
