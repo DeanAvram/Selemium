@@ -141,7 +141,8 @@ public class SanityTests {
 		menuPage.clickProduct();
 		//driver.findElement(By.xpath("//*[@id=\"main\"]/div/ul/li[1]/div[1]/a/img")).click();
 		
-		driver.findElement(By.name("add-to-cart")).click();
+		//driver.findElement(By.name("add-to-cart")).click();
+		menuPage.addToCart();
 		driver.findElement(By.className("ast-site-header-cart")).click();
 		driver.findElement(By.className("wc-proceed-to-checkout")).click();
 		Thread.sleep(1000);

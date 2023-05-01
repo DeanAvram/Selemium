@@ -13,14 +13,14 @@ public class MenuPage {
 	
 	By productbyId = By.id("menu-item-45");
 	By addToCartByXpath = By.xpath("//*[@id=\"main\"]/div/ul/li[1]/div[1]/a/img");
+	By goToCartByName =  By.name("add-to-cart");
 	
 	public void clickProduct() {
-		driver.findElement(productbyId).click();;
+		driver.findElement(productbyId).click();
 	}
 	
 	public void addToCart() {
-		
-		
+		driver.findElement(goToCartByName).click();
 	}
 
 }
