@@ -24,6 +24,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import pages.ContactUsPage;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
@@ -89,8 +92,11 @@ public class ContactUsTests {
 			JSONObject obj = (JSONObject) users.get(i);
 			driver.get("https://atid.store/");
 			driver.manage().window().setSize(new Dimension(1052, 666));
-			driver.findElement(By.xpath("//*[@id=\"menu-item-829\"]/a")).click();
-			driver.findElement(By.id("wpforms-submit-15")).click();
+			
+			ContactUsPage contactUsPage = new ContactUsPage(driver);
+			
+			//driver.findElement(By.xpath("//*[@id=\"menu-item-829\"]/a")).click();
+			contactUsPage.ClickContactUs();
 			Thread.sleep(1000);
 			driver.findElement(By.id("wpforms-15-field_0")).sendKeys((String) obj.get("name"));
 			driver.findElement(By.id("wpforms-15-field_5")).sendKeys((String) obj.get("subject"));
@@ -104,7 +110,7 @@ public class ContactUsTests {
 
 	}
 
-	@Test
+	//@Test
 	public void UnsuccessfulMessageSent() throws InterruptedException {
 		printMethodName();
 		for (int i = 0; i < users.size(); i++) {

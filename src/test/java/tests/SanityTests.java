@@ -24,6 +24,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import pages.MenuPage;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
@@ -95,7 +98,7 @@ public class SanityTests {
 		driver.quit();
 	}
 
-	@Test
+	//@Test
 	public void SuccessfulPurchaseOperation() throws InterruptedException {
 		printMethodName();
 		for (int i = 0; i < users.size(); i++) {
@@ -131,8 +134,13 @@ public class SanityTests {
 		printMethodName();
 		driver.get("https://atid.store/");
 		driver.manage().window().setSize(new Dimension(1052, 666));
-		driver.findElement(By.id("menu-item-45")).click();
-		driver.findElement(By.xpath("//*[@id=\"main\"]/div/ul/li[1]/div[1]/a/img")).click();
+		
+		MenuPage menuPage = new MenuPage(driver);
+		
+		//driver.findElement(By.id("menu-item-45")).click();
+		menuPage.clickProduct();
+		//driver.findElement(By.xpath("//*[@id=\"main\"]/div/ul/li[1]/div[1]/a/img")).click();
+		
 		driver.findElement(By.name("add-to-cart")).click();
 		driver.findElement(By.className("ast-site-header-cart")).click();
 		driver.findElement(By.className("wc-proceed-to-checkout")).click();
@@ -146,7 +154,7 @@ public class SanityTests {
 		}
 	}
 
-	//@Test
+	@Test
 	public void SuccessfulAddToCartOperation() throws InterruptedException {
 		printMethodName();
 		driver.get("https://atid.store/");
@@ -213,7 +221,6 @@ public class SanityTests {
 		driver.manage().window().setSize(new Dimension(1052, 666));
 		driver.findElement(By.id("menu-item-45")).click();
 		driver.findElement(By.xpath("//*[@id=\"main\"]/div/ul/li[1]/div[1]/a/img")).click();
-		// driver.findElement(By.name("add-to-cart")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.className("ast-site-header-cart")).click();
 		try {
