@@ -11,16 +11,21 @@ public class MenuPage {
 		this.driver = driver;
 	}
 	
-	By productbyId = By.id("menu-item-45");
-	By addToCartByXpath = By.xpath("//*[@id=\"main\"]/div/ul/li[1]/div[1]/a/img");
-	By goToCartByName =  By.name("add-to-cart");
+	By goToMenu = By.id("menu-item-45");
+	By goToProduct = By.xpath("//*[@id=\"main\"]/div/ul/li[1]/div[1]/a/img");
+	By addToCart =  By.name("add-to-cart");
 	
-	public void clickProduct() {
-		driver.findElement(productbyId).click();
+	public void goToMenu() {
+		driver.findElement(goToMenu).click();
+	}
+	
+	public void goToProduct() {
+		driver.findElement(goToProduct).click();
 	}
 	
 	public void addToCart() {
-		driver.findElement(goToCartByName).click();
+		driver.findElement(addToCart).click();
 	}
+	
 
 }

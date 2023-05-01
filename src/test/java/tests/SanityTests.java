@@ -138,9 +138,9 @@ public class SanityTests {
 		MenuPage menuPage = new MenuPage(driver);
 		
 		//driver.findElement(By.id("menu-item-45")).click();
-		menuPage.clickProduct();
+		menuPage.goToMenu();
 		//driver.findElement(By.xpath("//*[@id=\"main\"]/div/ul/li[1]/div[1]/a/img")).click();
-		
+		menuPage.goToProduct();
 		//driver.findElement(By.name("add-to-cart")).click();
 		menuPage.addToCart();
 		driver.findElement(By.className("ast-site-header-cart")).click();
