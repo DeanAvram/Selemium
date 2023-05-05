@@ -50,6 +50,7 @@ public class SanityTests {
 	private static WebDriver driver;
 	private Map<String, Object> vars;
 	private JSONArray users;
+	private MenuPage menuPage;
 
 	private static String pattern = "[^\\d.]"; // everything part of numbers and dots
 	public static int countSuccessfulPurchaseOperation = 0;
@@ -70,6 +71,7 @@ public class SanityTests {
 		driver = new ChromeDriver();
 		js = (JavascriptExecutor) driver;
 		vars = new HashMap<String, Object>();
+		menuPage = new MenuPage(driver);
 
 		try {
 			JSONParser jsonParser = new JSONParser();
@@ -95,10 +97,10 @@ public class SanityTests {
 
 	@After
 	public void tearDown() {
-		driver.quit();
+		// driver.quit();
 	}
 
-	//@Test
+	// @Test
 	public void SuccessfulPurchaseOperation() throws InterruptedException {
 		printMethodName();
 		for (int i = 0; i < users.size(); i++) {
@@ -129,33 +131,26 @@ public class SanityTests {
 
 	}
 
-	//@Test
+	@Test
 	public void UnsuccessfulPurchaseOperation() throws InterruptedException {
 		printMethodName();
 		driver.get("https://atid.store/");
 		driver.manage().window().setSize(new Dimension(1052, 666));
-		
-		MenuPage menuPage = new MenuPage(driver);
-		
-		//driver.findElement(By.id("menu-item-45")).click();
 		menuPage.goToMenu();
-		//driver.findElement(By.xpath("//*[@id=\"main\"]/div/ul/li[1]/div[1]/a/img")).click();
 		menuPage.goToProduct();
-		//driver.findElement(By.name("add-to-cart")).click();
 		menuPage.addToCart();
-		driver.findElement(By.className("ast-site-header-cart")).click();
-		driver.findElement(By.className("wc-proceed-to-checkout")).click();
+		menuPage.goToToCart();
+		menuPage.proceedToCheckOut();
 		Thread.sleep(1000);
-		driver.findElement(By.id("place_order")).click();
+		menuPage.placeOrder();
 		Thread.sleep(3000);
-		// List<WebElement> l = driver.findElements(By.className("woocommerce-error"));
 		if (!driver.findElements(By.className("woocommerce-error")).isEmpty()) {
 			// found at least one error (we wanted to see those error)
 			countUnsuccessfulPurchaseOperation++;
 		}
 	}
 
-	@Test
+	// @Test
 	public void SuccessfulAddToCartOperation() throws InterruptedException {
 		printMethodName();
 		driver.get("https://atid.store/");
@@ -175,7 +170,7 @@ public class SanityTests {
 
 	}
 
-	//@Test
+	// @Test
 	public void SuccessfulMultipleAddToCartOperation() throws InterruptedException {
 		printMethodName();
 		int count = 2;
@@ -200,7 +195,7 @@ public class SanityTests {
 
 	}
 
-	//@Test
+	// @Test
 	public void SuccessfulProccedToCheckout() throws InterruptedException {
 		printMethodName();
 		driver.get("https://atid.store/");
@@ -215,7 +210,7 @@ public class SanityTests {
 
 	}
 
-	//@Test
+	// @Test
 	public void SuccessfulCantProccedToCheckout() throws InterruptedException {
 		printMethodName();
 		driver.get("https://atid.store/");
