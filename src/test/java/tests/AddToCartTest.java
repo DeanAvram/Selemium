@@ -1,6 +1,7 @@
 package tests;
 
 import java.io.IOException;
+import org.apache.logging.log4j.*;
 
 import org.junit.After;
 import org.junit.Before;
@@ -10,6 +11,7 @@ import org.junit.runner.JUnitCore;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import tests.BaseTestClass;
 
 import pages.MenuPage;
 
@@ -24,6 +26,7 @@ public class AddToCartTest {
 	private static WebDriver driver;
 	//private Map<String, Object> vars;
 	private MenuPage menuPage;
+	Logger logger=LogManager.getLogger(AddToCartTest.class);
 
 	//private static String pattern = "[^\\d.]"; // everything part of numbers and dots
 	public static int countSuccessfulAddToCart = 0;

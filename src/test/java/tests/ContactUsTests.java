@@ -1,6 +1,7 @@
 package tests;
 
 import java.io.FileNotFoundException;
+import org.apache.logging.log4j.*;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -32,6 +33,7 @@ public class ContactUsTests {
 	private static WebDriver driver;
 	//private Map<String, Object> vars;
 	private JSONArray users;
+	Logger logger=LogManager.getLogger(ContactUsTests.class);
 
 	JavascriptExecutor js;
 

@@ -1,6 +1,7 @@
 package tests;
 
 import java.io.IOException;
+import org.apache.logging.log4j.*;
 
 import org.junit.After;
 import org.junit.Before;
@@ -51,6 +52,7 @@ public class ProccedToCheckOutTest {
 		driver.quit();
 	}
 
+	Logger logger=LogManager.getLogger(ProccedToCheckOutTest.class);
 	
 	@Test
 	public void SuccessfulProccedToCheckout() throws InterruptedException {

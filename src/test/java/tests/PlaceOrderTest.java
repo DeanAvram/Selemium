@@ -1,6 +1,7 @@
 package tests;
 
 import java.io.FileNotFoundException;
+import org.apache.logging.log4j.*;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
@@ -37,6 +38,7 @@ public class PlaceOrderTest {
 	private JSONArray users;
 	private MenuPage menuPage;
 	private PlaceOrderPage placeOrderPage;
+	Logger logger=LogManager.getLogger(PlaceOrderTest.class);
 
 	public static int countSuccessfulPurchaseOperation = 0;
 	public static int countUnsuccessfulPurchaseOperation = 0;
