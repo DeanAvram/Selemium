@@ -57,7 +57,7 @@ public class PlaceOrderTest {
 			reader = new FileReader("CartUsers.json");
 			// Read JSON file
 			users = (JSONArray) jsonParser.parse(reader);
-		} catch (FileNotFoundException | ParseException e) {
+		} catch (/*FileNotFoundException |*/ ParseException e) {
 			e.printStackTrace();
 		}
 

@@ -48,7 +48,7 @@ public class ContactUsTests {
 			reader = new FileReader("ContactUsUsers.json");
 			// Read JSON file
 			users = (JSONArray) jsonParser.parse(reader);
-		} catch (FileNotFoundException | ParseException e) {
+		} catch (/*FileNotFoundException |*/ ParseException e) {
 			e.printStackTrace();
 		}
 
