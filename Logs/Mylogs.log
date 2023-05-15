@@ -1,0 +1,26 @@
+[DEBUG] 2023-05-15 22:51:49.591 [main] PlaceOrderTest - go to main menu
+[DEBUG] 2023-05-15 22:51:49.994 [main] PlaceOrderTest - go to specific product
+[INFO ] 2023-05-15 23:01:27.108 [main] PlaceOrderTest - opening website
+[INFO ] 2023-05-15 23:01:27.230 [main] PlaceOrderTest - increase window size
+[DEBUG] 2023-05-15 23:01:27.658 [main] PlaceOrderTest - go to main menu
+[DEBUG] 2023-05-15 23:01:28.039 [main] PlaceOrderTest - go to specific product
+[DEBUG] 2023-05-15 23:01:28.661 [main] PlaceOrderTest - add product to cart
+[DEBUG] 2023-05-15 23:01:29.381 [main] PlaceOrderTest - go to cart
+[DEBUG] 2023-05-15 23:01:30.202 [main] PlaceOrderTest - proceed to checkout
+[DEBUG] 2023-05-15 23:01:31.360 [main] PlaceOrderTest - place order
+[INFO ] 2023-05-15 23:01:34.383 [main] PlaceOrderTest - Unsuccessful Purchase Operation test finished successfuly
+[INFO ] 2023-05-15 23:01:37.345 [main] PlaceOrderTest - opening website
+[INFO ] 2023-05-15 23:01:37.469 [main] PlaceOrderTest - increase window size
+[DEBUG] 2023-05-15 23:01:37.903 [main] PlaceOrderTest - go to main menu
+[DEBUG] 2023-05-15 23:01:38.273 [main] PlaceOrderTest - go to specific product
+[DEBUG] 2023-05-15 23:01:38.892 [main] PlaceOrderTest - add product to cart
+[DEBUG] 2023-05-15 23:01:39.570 [main] PlaceOrderTest - go to cart
+[DEBUG] 2023-05-15 23:01:40.345 [main] PlaceOrderTest - proceed to checkout
+[DEBUG] 2023-05-15 23:01:41.455 [main] PlaceOrderTest - send first name as key
+[DEBUG] 2023-05-15 23:01:41.533 [main] PlaceOrderTest - send last name as key
+[DEBUG] 2023-05-15 23:01:41.612 [main] PlaceOrderTest - send address as key
+[DEBUG] 2023-05-15 23:01:41.685 [main] PlaceOrderTest - send postcodeas key
+[DEBUG] 2023-05-15 23:01:41.758 [main] PlaceOrderTest - send city as key
+[DEBUG] 2023-05-15 23:01:41.878 [main] PlaceOrderTest - send phone as key
+[DEBUG] 2023-05-15 23:01:41.967 [main] PlaceOrderTest - send email as key
+[INFO ] 2023-05-15 23:01:46.118 [main] PlaceOrderTest - Successful Purchase Operation test finished successfuly

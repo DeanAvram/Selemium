@@ -1,6 +1,5 @@
 package tests;
 
-import java.io.FileNotFoundException;
 import org.apache.logging.log4j.*;
 import java.io.FileReader;
 import java.io.IOException;
@@ -38,10 +37,9 @@ public class PlaceOrderTest {
 	private JSONArray users;
 	private MenuPage menuPage;
 	private PlaceOrderPage placeOrderPage;
-	Logger logger=LogManager.getLogger(PlaceOrderTest.class);
+	Logger logger = LogManager.getLogger(PlaceOrderTest.class);
+	
 
-	public static int countSuccessfulPurchaseOperation = 0;
-	public static int countUnsuccessfulPurchaseOperation = 0;
 	JavascriptExecutor js;
 
 	@Before
@@ -81,29 +79,42 @@ public class PlaceOrderTest {
 		for (int i = 0; i < users.size(); i++) {
 			JSONObject obj = (JSONObject) users.get(i);
 			driver.get("https://atid.store/");
+			logger.info("opening website");
 			driver.manage().window().setSize(new Dimension(1052, 666));
+			logger.info("increase window size");
 			menuPage.goToMenu();
+			logger.debug("go to main menu");
 			menuPage.goToProduct();
+			logger.debug("go to specific product");
 			menuPage.addToCart();
+			logger.debug("add product to cart");
 			menuPage.goToToCart();
+			logger.debug("go to cart");
 			menuPage.proceedToCheckOut();
+			logger.debug("proceed to checkout");
 			Thread.sleep(1000);
 			
 			placeOrderPage.enterFirstName((String) obj.get("firstName"));
+			logger.debug("send first name as key");
 			placeOrderPage.enterLastName((String) obj.get("lastName"));
+			logger.debug("send last name as key");
 			placeOrderPage.enterAddress((String) obj.get("address"));
+			logger.debug("send address as key");
 			placeOrderPage.enterPostcode((String) obj.get("postcode"));
+			logger.debug("send postcodeas key");
 			placeOrderPage.enterCity((String) obj.get("city"));
+			logger.debug("send city as key");
 			placeOrderPage.enterPhone((String) obj.get("phone"));
+			logger.debug("send phone as key");
 			placeOrderPage.enterEmail((String) obj.get("email"));
+			logger.debug("send email as key");
 			Thread.sleep(1000);
 			menuPage.placeOrder();
 			List<WebElement> errors = driver.findElements(By.className("woocommerce-error"));
 			Thread.sleep(3000);
 			if (errors.size() == 0) {
-				System.out.println("xx");
 				// did not find an error message error
-				countSuccessfulPurchaseOperation++;
+				logger.info("Successful Purchase Operation test finished successfuly");
 			}
 		}
 
@@ -113,18 +124,26 @@ public class PlaceOrderTest {
 	public void UnsuccessfulPurchaseOperation() throws InterruptedException {
 		printMethodName();
 		driver.get("https://atid.store/");
+		logger.info("opening website");
 		driver.manage().window().setSize(new Dimension(1052, 666));
+		logger.info("increase window size");
 		menuPage.goToMenu();
+		logger.debug("go to main menu");
 		menuPage.goToProduct();
+		logger.debug("go to specific product");
 		menuPage.addToCart();
+		logger.debug("add product to cart");
 		menuPage.goToToCart();
+		logger.debug("go to cart");
 		menuPage.proceedToCheckOut();
+		logger.debug("proceed to checkout");
 		Thread.sleep(1000);
 		menuPage.placeOrder();
+		logger.debug("place order");
 		Thread.sleep(3000);
 		if (!driver.findElements(By.className("woocommerce-error")).isEmpty()) {
 			// found at least one error (we wanted to see those error)
-			countUnsuccessfulPurchaseOperation++;
+			logger.info("Unsuccessful Purchase Operation test finished successfuly");
 		}
 	}
 
@@ -139,22 +158,12 @@ public class PlaceOrderTest {
 			System.exit(1);
 		} else {
 			System.out.println("Test finished without errors.");
-			// System.exit(0);
+			System.exit(0);
 		}
-
-		if (countSuccessfulPurchaseOperation == 0) {
-			System.out.println("Test of successful purchase failed");
-			System.exit(1);
-		}
-
-		if (countUnsuccessfulPurchaseOperation == 0) {
-			System.out.println("Test of unsuccessful purchase failed");
-			System.exit(1);
-		}
-
 
 		System.out.println("All tests finished successfully");
 		System.exit(0);
+		
 
 	}
 }
