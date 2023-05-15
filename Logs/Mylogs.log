@@ -24,3 +24,29 @@
 [DEBUG] 2023-05-15 23:01:41.878 [main] PlaceOrderTest - send phone as key
 [DEBUG] 2023-05-15 23:01:41.967 [main] PlaceOrderTest - send email as key
 [INFO ] 2023-05-15 23:01:46.118 [main] PlaceOrderTest - Successful Purchase Operation test finished successfuly
+[INFO ] 2023-05-15 23:14:57.782 [main] PlaceOrderTest - Starting UnsuccessfulPurchaseOperation
+[INFO ] 2023-05-15 23:14:59.156 [main] PlaceOrderTest - opening website
+[INFO ] 2023-05-15 23:14:59.284 [main] PlaceOrderTest - increase window size
+[DEBUG] 2023-05-15 23:14:59.765 [main] PlaceOrderTest - go to main menu
+[DEBUG] 2023-05-15 23:15:00.185 [main] PlaceOrderTest - go to specific product
+[DEBUG] 2023-05-15 23:15:00.832 [main] PlaceOrderTest - add product to cart
+[DEBUG] 2023-05-15 23:15:01.604 [main] PlaceOrderTest - go to cart
+[DEBUG] 2023-05-15 23:15:02.567 [main] PlaceOrderTest - proceed to checkout
+[DEBUG] 2023-05-15 23:15:03.660 [main] PlaceOrderTest - place order
+[INFO ] 2023-05-15 23:15:06.687 [main] PlaceOrderTest - Unsuccessful Purchase Operation test finished successfuly
+[INFO ] 2023-05-15 23:15:08.391 [main] PlaceOrderTest - Starting SuccessfulPurchaseOperation
+[INFO ] 2023-05-15 23:15:09.630 [main] PlaceOrderTest - opening website
+[INFO ] 2023-05-15 23:15:09.748 [main] PlaceOrderTest - increase window size
+[DEBUG] 2023-05-15 23:15:10.205 [main] PlaceOrderTest - go to main menu
+[DEBUG] 2023-05-15 23:15:10.663 [main] PlaceOrderTest - go to specific product
+[DEBUG] 2023-05-15 23:15:11.347 [main] PlaceOrderTest - add product to cart
+[DEBUG] 2023-05-15 23:15:12.082 [main] PlaceOrderTest - go to cart
+[DEBUG] 2023-05-15 23:15:12.925 [main] PlaceOrderTest - proceed to checkout
+[DEBUG] 2023-05-15 23:15:14.053 [main] PlaceOrderTest - send first name as key
+[DEBUG] 2023-05-15 23:15:14.131 [main] PlaceOrderTest - send last name as key
+[DEBUG] 2023-05-15 23:15:14.212 [main] PlaceOrderTest - send address as key
+[DEBUG] 2023-05-15 23:15:14.297 [main] PlaceOrderTest - send postcodeas key
+[DEBUG] 2023-05-15 23:15:14.381 [main] PlaceOrderTest - send city as key
+[DEBUG] 2023-05-15 23:15:14.513 [main] PlaceOrderTest - send phone as key
+[DEBUG] 2023-05-15 23:15:14.614 [main] PlaceOrderTest - send email as key
+[INFO ] 2023-05-15 23:15:18.733 [main] PlaceOrderTest - Successful Purchase Operation test finished successfuly

@@ -63,8 +63,8 @@ public class PlaceOrderTest {
 
 	}
 
-	public static void printMethodName() {
-		System.out.println("Starting " + Thread.currentThread().getStackTrace()[2].getMethodName());
+	public static String getMethodName() {
+		return Thread.currentThread().getStackTrace()[2].getMethodName();
 	}
 
 
@@ -75,7 +75,7 @@ public class PlaceOrderTest {
 
 	@Test
 	public void SuccessfulPurchaseOperation() throws InterruptedException {
-		printMethodName();
+		logger.info("Starting " + getMethodName());
 		for (int i = 0; i < users.size(); i++) {
 			JSONObject obj = (JSONObject) users.get(i);
 			driver.get("https://atid.store/");
@@ -101,7 +101,7 @@ public class PlaceOrderTest {
 			placeOrderPage.enterAddress((String) obj.get("address"));
 			logger.debug("send address as key");
 			placeOrderPage.enterPostcode((String) obj.get("postcode"));
-			logger.debug("send postcodeas key");
+			logger.debug("send postcode as key");
 			placeOrderPage.enterCity((String) obj.get("city"));
 			logger.debug("send city as key");
 			placeOrderPage.enterPhone((String) obj.get("phone"));
@@ -122,7 +122,7 @@ public class PlaceOrderTest {
 
 	@Test
 	public void UnsuccessfulPurchaseOperation() throws InterruptedException {
-		printMethodName();
+		logger.info("Starting " + getMethodName());
 		driver.get("https://atid.store/");
 		logger.info("opening website");
 		driver.manage().window().setSize(new Dimension(1052, 666));
