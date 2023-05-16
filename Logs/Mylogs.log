@@ -50,3 +50,62 @@
 [DEBUG] 2023-05-15 23:15:14.513 [main] PlaceOrderTest - send phone as key
 [DEBUG] 2023-05-15 23:15:14.614 [main] PlaceOrderTest - send email as key
 [INFO ] 2023-05-15 23:15:18.733 [main] PlaceOrderTest - Successful Purchase Operation test finished successfuly
+[INFO ] 2023-05-16 21:13:04.046 [main] ProccedToCheckOutTest - Starting SuccessfulProccedToCheckout
+[INFO ] 2023-05-16 21:13:05.628 [main] ProccedToCheckOutTest - opening website
+[INFO ] 2023-05-16 21:13:05.754 [main] ProccedToCheckOutTest - increase window size
+[DEBUG] 2023-05-16 21:13:06.404 [main] ProccedToCheckOutTest - go to main menu
+[DEBUG] 2023-05-16 21:13:07.020 [main] ProccedToCheckOutTest - go to specific product
+[DEBUG] 2023-05-16 21:13:08.331 [main] ProccedToCheckOutTest - add product to cart
+[DEBUG] 2023-05-16 21:13:10.203 [main] ProccedToCheckOutTest - go to cart
+[DEBUG] 2023-05-16 21:13:10.269 [main] ProccedToCheckOutTest - checking if procced to checkout is visible
+[INFO ] 2023-05-16 21:13:10.269 [main] ProccedToCheckOutTest - Procced to checkout Operation test finished successfuly
+[INFO ] 2023-05-16 21:13:12.312 [main] ProccedToCheckOutTest - Starting SuccessfulCantProccedToCheckout
+[INFO ] 2023-05-16 21:13:13.688 [main] ProccedToCheckOutTest - opening website
+[INFO ] 2023-05-16 21:13:13.813 [main] ProccedToCheckOutTest - increase window size
+[DEBUG] 2023-05-16 21:13:14.235 [main] ProccedToCheckOutTest - go to main menu
+[DEBUG] 2023-05-16 21:13:14.677 [main] ProccedToCheckOutTest - go to specific product
+[DEBUG] 2023-05-16 21:13:15.747 [main] ProccedToCheckOutTest - add product to cart
+[INFO ] 2023-05-16 21:13:15.768 [main] ProccedToCheckOutTest - Cant procced to checkout Operation test finished successfuly
+[INFO ] 2023-05-16 21:15:18.051 [main] PlaceOrderTest - Starting UnsuccessfulPurchaseOperation
+[INFO ] 2023-05-16 21:15:19.630 [main] PlaceOrderTest - opening website
+[INFO ] 2023-05-16 21:15:19.753 [main] PlaceOrderTest - increase window size
+[DEBUG] 2023-05-16 21:15:20.170 [main] PlaceOrderTest - go to main menu
+[DEBUG] 2023-05-16 21:15:20.544 [main] PlaceOrderTest - go to specific product
+[DEBUG] 2023-05-16 21:15:21.235 [main] PlaceOrderTest - add product to cart
+[DEBUG] 2023-05-16 21:15:21.926 [main] PlaceOrderTest - go to cart
+[DEBUG] 2023-05-16 21:15:22.783 [main] PlaceOrderTest - proceed to checkout
+[DEBUG] 2023-05-16 21:15:23.907 [main] PlaceOrderTest - place order
+[INFO ] 2023-05-16 21:15:26.931 [main] PlaceOrderTest - Unsuccessful Purchase Operation test finished successfuly
+[INFO ] 2023-05-16 21:15:28.587 [main] PlaceOrderTest - Starting SuccessfulPurchaseOperation
+[INFO ] 2023-05-16 21:15:29.726 [main] PlaceOrderTest - opening website
+[INFO ] 2023-05-16 21:15:29.858 [main] PlaceOrderTest - increase window size
+[DEBUG] 2023-05-16 21:15:30.210 [main] PlaceOrderTest - go to main menu
+[DEBUG] 2023-05-16 21:15:30.586 [main] PlaceOrderTest - go to specific product
+[DEBUG] 2023-05-16 21:15:31.191 [main] PlaceOrderTest - add product to cart
+[DEBUG] 2023-05-16 21:15:31.869 [main] PlaceOrderTest - go to cart
+[DEBUG] 2023-05-16 21:15:32.692 [main] PlaceOrderTest - proceed to checkout
+[DEBUG] 2023-05-16 21:15:33.844 [main] PlaceOrderTest - send first name as key
+[DEBUG] 2023-05-16 21:15:33.922 [main] PlaceOrderTest - send last name as key
+[DEBUG] 2023-05-16 21:15:33.995 [main] PlaceOrderTest - send address as key
+[DEBUG] 2023-05-16 21:15:34.067 [main] PlaceOrderTest - send postcode as key
+[DEBUG] 2023-05-16 21:15:34.142 [main] PlaceOrderTest - send city as key
+[DEBUG] 2023-05-16 21:15:34.260 [main] PlaceOrderTest - send phone as key
+[DEBUG] 2023-05-16 21:15:34.343 [main] PlaceOrderTest - send email as key
+[INFO ] 2023-05-16 21:15:38.503 [main] PlaceOrderTest - Successful Purchase Operation test finished successfuly
+[INFO ] 2023-05-16 21:16:01.028 [main] ContactUsTests - Starting SuccessfulMessageSent
+[INFO ] 2023-05-16 21:16:01.030 [main] ContactUsTests - read object number 1 from json
+[INFO ] 2023-05-16 21:16:02.798 [main] ContactUsTests - opening website
+[INFO ] 2023-05-16 21:16:02.919 [main] ContactUsTests - increase window size
+[DEBUG] 2023-05-16 21:16:03.495 [main] ContactUsTests - click on contact us
+[DEBUG] 2023-05-16 21:16:04.605 [main] ContactUsTests - send name as key
+[DEBUG] 2023-05-16 21:16:04.699 [main] ContactUsTests - send subject as key
+[DEBUG] 2023-05-16 21:16:04.807 [main] ContactUsTests - send email as key
+[DEBUG] 2023-05-16 21:16:04.906 [main] ContactUsTests - send message as key
+[DEBUG] 2023-05-16 21:16:08.754 [main] ContactUsTests - click on send message
+[INFO ] 2023-05-16 21:16:08.812 [main] ContactUsTests - Successful send message Operation test finished successfuly
+[INFO ] 2023-05-16 21:16:10.503 [main] ContactUsTests - Starting UnsuccessfulMessageSent
+[INFO ] 2023-05-16 21:16:11.801 [main] ContactUsTests - opening website
+[INFO ] 2023-05-16 21:16:11.927 [main] ContactUsTests - increase window size
+[DEBUG] 2023-05-16 21:16:12.416 [main] ContactUsTests - click on contact us
+[DEBUG] 2023-05-16 21:16:15.495 [main] ContactUsTests - click on send message without sending keys
+[INFO ] 2023-05-16 21:16:15.536 [main] ContactUsTests - Unsuccessful send message Operation test finished successfuly

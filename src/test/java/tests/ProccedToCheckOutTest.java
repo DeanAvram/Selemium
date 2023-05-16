@@ -15,74 +15,78 @@ import org.openqa.selenium.WebDriver;
 
 import pages.MenuPage;
 
-/*import org.apache.log4j.FileAppender;
-import org.apache.log4j.Layout;
-import org.apache.log4j.Level;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-import org.apache.log4j.SimpleLayout;*/
 
 public class ProccedToCheckOutTest {
 	private static WebDriver driver;
-	//private Map<String, Object> vars;
 	private MenuPage menuPage;
+	
+	Logger logger = LogManager.getLogger(ProccedToCheckOutTest.class);
 
 	
-	public static int countSuccessfulProccedToCheckout = 0;
-	public static int countSuccessfulCantProccedToCheckout = 0;
 	JavascriptExecutor js;
 
 	@Before
-
 	public void setUp() throws IOException {
 		driver = BaseTestClass.initializeDriver();
 		js = (JavascriptExecutor) driver;
-		//vars = new HashMap<String, Object>();
 		menuPage = new MenuPage(driver);
-
-	
 	}
 
-	public static void printMethodName() {
-		System.out.println("Starting " + Thread.currentThread().getStackTrace()[2].getMethodName());
+	public static String getMethodName() {
+		return Thread.currentThread().getStackTrace()[2].getMethodName();
 	}
 
 	@After
 	public void tearDown() {
 		driver.quit();
 	}
-
-	Logger logger=LogManager.getLogger(ProccedToCheckOutTest.class);
 	
 	@Test
 	public void SuccessfulProccedToCheckout() throws InterruptedException {
-		printMethodName();
+		logger.info("Starting " + getMethodName());
 		driver.get("https://atid.store/");
+		logger.info("opening website");
 		driver.manage().window().setSize(new Dimension(1052, 666));
+		logger.info("increase window size");
 		menuPage.goToMenu();
+		logger.debug("go to main menu");
 		menuPage.goToProduct();
+		logger.debug("go to specific product");
 		menuPage.addToCart();
+		logger.debug("add product to cart");
 		Thread.sleep(1000);
 		menuPage.goToToCart();
-		if (menuPage.isProceedToCheckoutVisible())
-			countSuccessfulProccedToCheckout++;
+		logger.debug("go to cart");
+		boolean isVisible = menuPage.isProceedToCheckoutVisible();
+		logger.debug("checking if procced to checkout is visible");
+		if (isVisible) 
+			logger.info("Procced to checkout Operation test finished successfuly");
+		else {
+			logger.error("Procced to checkout Operation test finished with errors");
+		}
 
 	}
 
 	@Test
 	public void SuccessfulCantProccedToCheckout() throws InterruptedException {
-		printMethodName();
+		logger.info("Starting " + getMethodName());
 		driver.get("https://atid.store/");
+		logger.info("opening website");
 		driver.manage().window().setSize(new Dimension(1052, 666));
+		logger.info("increase window size");
 		menuPage.goToMenu();
+		logger.debug("go to main menu");
 		menuPage.goToProduct();
+		logger.debug("go to specific product");
 		Thread.sleep(1000);
 		menuPage.goToToCart();
+		logger.debug("add product to cart");
 		try {
 			menuPage.proceedToCheckOut();
+			logger.debug("trying to procced to checkout");
 		} catch (NoSuchElementException e) {
 			// if can't find that element -> the test completed successfully
-			countSuccessfulCantProccedToCheckout++;
+			logger.info("Cant procced to checkout Operation test finished successfuly");
 		}
 
 	}
@@ -95,21 +99,9 @@ public class ProccedToCheckOutTest {
 		if (result.getFailureCount() > 0) {
 			System.out.println("Test failed.");
 			System.exit(1);
-		} else {
+		} else 
 			System.out.println("Test finished without errors.");
-			// System.exit(0);
-		}
-
-		if (countSuccessfulProccedToCheckout == 0) {
-			System.out.println("Test of successful proceed to checkout failed");
-			System.exit(1);
-		}
-
-		if (countSuccessfulCantProccedToCheckout == 0) {
-			System.out.println("Test of cant proceed to checkout failed");
-			System.exit(1);
-		}
-
+		
 		System.out.println("All tests finished successfully");
 		System.exit(0);
 

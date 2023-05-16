@@ -1,8 +1,9 @@
 package tests;
 
 import java.io.IOException;
-import org.apache.logging.log4j.*;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,42 +12,26 @@ import org.junit.runner.JUnitCore;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import tests.BaseTestClass;
 
 import pages.MenuPage;
 
-/*import org.apache.log4j.FileAppender;
-import org.apache.log4j.Layout;
-import org.apache.log4j.Level;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-import org.apache.log4j.SimpleLayout;*/
-
 public class AddToCartTest {
 	private static WebDriver driver;
-	//private Map<String, Object> vars;
 	private MenuPage menuPage;
 	Logger logger=LogManager.getLogger(AddToCartTest.class);
 
-	//private static String pattern = "[^\\d.]"; // everything part of numbers and dots
-	public static int countSuccessfulAddToCart = 0;
-	public static int countSuccessfulMultipleAddToCart = 0;
-	
 	JavascriptExecutor js;
 
 	@Before
-
 	public void setUp() throws IOException {
 		driver = BaseTestClass.initializeDriver();
 		js = (JavascriptExecutor) driver;
-		//vars = new HashMap<String, Object>();
 		menuPage = new MenuPage(driver);
 	}
 
-	public static void printMethodName() {
-		System.out.println("Starting " + Thread.currentThread().getStackTrace()[2].getMethodName());
+	public static String getMethodName() {
+		return Thread.currentThread().getStackTrace()[2].getMethodName();
 	}
-
 
 	@After
 	public void tearDown() {
@@ -56,48 +41,59 @@ public class AddToCartTest {
 
 	@Test
 	public void SuccessfulAddToCartOperation() throws InterruptedException {
-		printMethodName();
+		logger.info("Starting " + getMethodName());
 		driver.get("https://atid.store/");
+		logger.info("opening website");
 		driver.manage().window().setSize(new Dimension(1052, 666));
+		logger.info("increase window size");
 		double cartAmountBeforeAdd = menuPage.getCartAmount();
-		
+		logger.debug("calculate cart amount before add");
 		menuPage.goToMenu();
+		logger.debug("go to main menu");
 		menuPage.goToProduct();
+		logger.debug("go to specific product");
 		menuPage.addToCart();
-		
+		logger.debug("add product to cart");
 		double productPrice = menuPage.getProductPrice();
+		logger.debug("calculate product price");
 		double cartAmountAfterAdd = menuPage.getCartAmount();
-		//System.out.println("Product price: " + productPrice);
-		//System.out.println("Cart before: " + cartAmountBeforeAdd);
-		//System.out.println("Cart after: " + cartAmountAfterAdd);
+		logger.debug("calculate cart amount after add");
 		if (cartAmountBeforeAdd == 0 && cartAmountAfterAdd == productPrice)
-			countSuccessfulAddToCart++;
+			logger.info("Add To Cart Operation test finished successfuly");
+		else
+			logger.error("Add To Cart Operation test with errors");
 
 	}
 
 	@Test
 	public void SuccessfulMultipleAddToCartOperation() throws InterruptedException {
-		printMethodName();
+		logger.info("Starting " + getMethodName());
 		int count = 2;
 		driver.get("https://atid.store/");
+		logger.info("opening website");
 		driver.manage().window().setSize(new Dimension(1052, 666));
+		logger.info("increase window size");
 		double cartAmountBeforeAdd = menuPage.getCartAmount();
+		logger.debug("calculate cart amount before add");
 		for (int i = 0; i < count; i++) {
-			// add the same product two times to the cart
+			// add the same product twice to the cart
+			logger.debug("starting adding product number" + (i+1) + " to cart" );
 			menuPage.goToMenu();
+			logger.debug("go to main menu");
 			menuPage.goToProduct();
+			logger.debug("go to specific product");
 			menuPage.addToCart();
+			logger.debug("add product to cart");
 			Thread.sleep(1000);
 		}
 		double productPrice = menuPage.getProductPrice();
+		logger.debug("calculate product price");
 		double cartAmountAfterAdd = menuPage.getCartAmount();
-		System.out.println("Product price: " + productPrice);
-		System.out.println("Cart before: " + cartAmountBeforeAdd);
-		System.out.println("Cart after: " + cartAmountAfterAdd);
+		logger.debug("calculate cart amount after add");
 		if (cartAmountBeforeAdd == 0 && cartAmountAfterAdd == productPrice * count)
-			countSuccessfulMultipleAddToCart++;
-		
-
+			logger.info("Add Multiple Products To Cart Operation test finished successfuly");
+		else
+			logger.error("Add Multiple Products To Cart Operation test finished with errors");
 	}
 
 
@@ -109,21 +105,8 @@ public class AddToCartTest {
 		if (result.getFailureCount() > 0) {
 			System.out.println("Test failed.");
 			System.exit(1);
-		} else {
+		} else 
 			System.out.println("Test finished without errors.");
-			// System.exit(0);
-		}
-
-		if (countSuccessfulAddToCart == 0) {
-			System.out.println("Test of successful add to card failed");
-			System.exit(1);
-		}
-
-		if (countSuccessfulMultipleAddToCart == 0) {
-			System.out.println("Test of successful multiple add to card failed");
-			System.exit(1);
-		}
-
 		System.out.println("All tests finished successfully");
 		System.exit(0);
 

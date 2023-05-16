@@ -24,30 +24,22 @@ import org.openqa.selenium.WebElement;
 import pages.MenuPage;
 import pages.PlaceOrderPage;
 
-/*import org.apache.log4j.FileAppender;
-import org.apache.log4j.Layout;
-import org.apache.log4j.Level;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-import org.apache.log4j.SimpleLayout;*/
 
 public class PlaceOrderTest {
 	private static WebDriver driver;
-	//private Map<String, Object> vars;
 	private JSONArray users;
 	private MenuPage menuPage;
 	private PlaceOrderPage placeOrderPage;
 	Logger logger = LogManager.getLogger(PlaceOrderTest.class);
 	
+	
 
 	JavascriptExecutor js;
 
 	@Before
-
 	public void setUp() throws IOException {
 		driver = BaseTestClass.initializeDriver();
 		js = (JavascriptExecutor) driver;
-		//vars = new HashMap<String, Object>();
 		menuPage = new MenuPage(driver);
 		placeOrderPage = new PlaceOrderPage(driver);
 
@@ -113,8 +105,11 @@ public class PlaceOrderTest {
 			List<WebElement> errors = driver.findElements(By.className("woocommerce-error"));
 			Thread.sleep(3000);
 			if (errors.size() == 0) {
-				// did not find an error message error
+				//did not find an error message error
 				logger.info("Successful Purchase Operation test finished successfuly");
+			}else {
+				//found an error message error
+				logger.error("Successful Purchase Operation test finished with errors");
 			}
 		}
 
@@ -144,6 +139,9 @@ public class PlaceOrderTest {
 		if (!driver.findElements(By.className("woocommerce-error")).isEmpty()) {
 			// found at least one error (we wanted to see those error)
 			logger.info("Unsuccessful Purchase Operation test finished successfuly");
+		}
+		else {
+			logger.error("Unsuccessful Purchase Operation test finished with errors");
 		}
 	}
 
